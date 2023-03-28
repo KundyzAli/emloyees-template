@@ -48,24 +48,12 @@ class App extends Component {
     });
   }
 
-  onToggleIncrease = (id) => {
+  onToggleProp = (id, prop) => {
     this.setState(({ data }) => ({
       data: data.map(item => { //item - это каждый отдельный объект внутрим массива
         if (item.id === id) { //если id внутри объекта совпали с тем id кот-й пришел внутри метода
-          return { ...item, increase: !item.increase } //возвращаем нов.массив, в кот-м все старые св-ва
+          return { ...item, [prop]: !item[prop] } //возвращаем нов.массив, в кот-м все старые св-ва
           //  и плюс increase в кот-м поменялось значение на противоположное(нов.массив в кот-м старые св-ва и плюс новые измененные значения)
-        }
-        return item; //если условия не выполнились возвращаем объект
-      })
-    }))
-  }
-
-  onToggleRise = (id) => {
-    this.setState(({ data }) => ({
-      data: data.map(item => { //item - это каждый отдельный объект внутрим массива
-        if (item.id === id) { //если id внутри объекта совпали с тем id кот-й пришел внутри метода
-          return { ...item, rise: !item.rise } //возвращаем нов.массив, в кот-м все старые св-ва
-          //  и плюс Riseв кот-м поменялось значение на противоположное(нов.массив в кот-м старые св-ва и плюс новые измененные значения)
         }
         return item; //если условия не выполнились возвращаем объект
       })
@@ -88,8 +76,7 @@ class App extends Component {
           <EmployeesList
             data={this.state.data}
             onDelete={this.deleteItem}
-            onToggleIncrease={this.onToggleIncrease}
-            onToggleRise={this.onToggleRise} />
+            onToggleProp={this.onToggleProp} />
           <EmployeesAddForm
             onAdd={this.addItem} />
         </div>

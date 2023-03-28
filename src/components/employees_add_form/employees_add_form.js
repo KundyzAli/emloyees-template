@@ -19,8 +19,11 @@ class EmployeesAddForm extends Component {
     })
   }
 
+
   onSubmit = (e) => {
     e.preventDefault();
+    if (this.state.name.length < 2 || !this.state.salary) return;
+    // валидация, чтобы не добавлялись пустые поля в список, имя не должно быть короче 2 символов, и з/п должна быть введена
     this.props.onAdd(this.state.name, this.state.salary);
     this.setState({
       name: '',
