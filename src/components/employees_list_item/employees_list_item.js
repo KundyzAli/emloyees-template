@@ -48,7 +48,7 @@ class EmployeesListItem extends Component {
 
           <button type="button"
             className="btn-trash btn-sm "
-            onClick={onDelete}>
+            onClick={onDelete}> {/* данная ф-я вызвана, но описана в empolyees_list, перелача данных по иерархии*/}
             <i className="fas fa-trash"></i>
           </button>
           <i className="fas fa-star"></i>
