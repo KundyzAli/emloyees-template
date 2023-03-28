@@ -11,9 +11,9 @@ import './app.css';
 function App() {
 
   const data = [
-    { name: 'John S.', salary: 800, increase: false },
-    { name: 'Alex M.', salary: 3800, increase: true },
-    { name: 'Carl W.', salary: 5000, increase: false },
+    { name: 'John S.', salary: 800, increase: false, id: 1 },
+    { name: 'Alex M.', salary: 3800, increase: true, id: 2 },
+    { name: 'Carl W.', salary: 5000, increase: false, id: 3 },
   ];
 
   return (
@@ -23,7 +23,9 @@ function App() {
       <div className="search-panel">
         <SearchPanel />
         <AppFilter />
-        <EmployeesList data={data} />
+        <EmployeesList
+          data={data}
+          onDelete={id => console.log(id)} />
         <EmployeesAddForm />
       </div>
     </div>

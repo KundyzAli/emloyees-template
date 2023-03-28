@@ -1,14 +1,15 @@
 import EmployeesListItem from '../employees_list_item/employees_list_item';
 import './employees_list.css';
 
-const EmployeesList = ({ data }) => {
+const EmployeesList = ({ data, onDelete }) => {
 
   const elements = data.map(item => {
+    const { id, ...itemProps } = item;
     return (
-      // 2 нижних кода индентичны,1-й написан при помощи spread оператора
-      <EmployeesListItem {...item} />
-      // 2-й при помощи деструктуризации
-      // <EmployeesListItem name={item.name} salary={item.salary} />
+      <EmployeesListItem
+        key={id}
+        {...itemProps}
+        onDelete={() => console.log('Deleted')} />
     )
   })
 
