@@ -10,7 +10,8 @@ const EmployeesList = ({ data, onDelete, onToggleIncrease, onToggleRise }) => {
         key={id}
         {...itemProps}
         onDelete={() => onDelete(id)}
-        onToggleIncrease={() => onToggleIncrease(id)} /> /* мы вызываем удаление id ,в это части мы получаем id того сотрудника кот-го мы удаляем, чтобы дальше работать с id */
+        onToggleIncrease={() => onToggleIncrease(id)}
+        onToggleRise={() => onToggleRise(id)}/> /* мы вызываем удаление id ,в это части мы получаем id того сотрудника кот-го мы удаляем, чтобы дальше работать с id */
     )
   })
 
